@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trust Movers – Local & Long Distance Moving Chicago Area</title>
+<meta name="description" content="Trust Movers – Professional local and long distance moving company serving Chicago and all of Illinois. Get an instant estimate and book online!">
+<meta name="keywords" content="movers Chicago, local movers Illinois, long distance movers, moving company Chicago, Trust Movers, affordable movers">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0d2340;--navy2:#1a3a5c;--gold:#d4a843;--gold2:#f0c96a;
+  --white:#fff;--off:#f8f6f1;--gray:#6b7280;--lgray:#e5e7eb;
+  --dark:#111827;--green:#16a34a;--red:#dc2626;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--dark);background:var(--white)}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--navy);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;box-shadow:0 2px 20px rgba(0,0,0,.35)}
+.logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.5rem;letter-spacing:1px}
+.logo span{color:#fff}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.82);font-size:.92rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-phone{color:var(--gold);font-weight:700;font-size:.95rem}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:#fff;border-radius:2px;display:block}
+
+/* HERO */
+.hero{padding-top:68px;min-height:88vh;background:linear-gradient(135deg,var(--navy) 55%,var(--navy2));display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-100px;top:-100px;width:550px;height:550px;border-radius:50%;background:rgba(212,168,67,.07);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;padding:3rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;width:100%}
+.badge{display:inline-block;background:rgba(212,168,67,.18);color:var(--gold);font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:.35rem 1rem;border-radius:20px;margin-bottom:1rem;border:1px solid rgba(212,168,67,.3)}
+.hero h1{font-family:'Playfair Display',serif;color:#fff;font-size:clamp(1.9rem,3.5vw,3rem);line-height:1.2;margin-bottom:1.1rem}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{color:rgba(255,255,255,.75);font-size:1rem;line-height:1.75;margin-bottom:1.8rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--navy);padding:.8rem 1.8rem;border-radius:8px;font-weight:700;font-size:.95rem;transition:all .2s;display:inline-block;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);padding:.8rem 1.8rem;border-radius:8px;font-weight:600;font-size:.95rem;transition:all .2s;display:inline-block}
+.btn-outline:hover{border-color:#fff}
+.hero-stats{display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+.stat .num{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--gold);display:block}
+.stat .lbl{font-size:.78rem;color:rgba(255,255,255,.55)}
+
+/* ESTIMATE CARD */
+.est-card{background:#fff;border-radius:16px;padding:1.8rem;box-shadow:0 20px 60px rgba(0,0,0,.3);max-height:90vh;overflow-y:auto}
+.est-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:.25rem}
+.est-card .sub{color:var(--gray);font-size:.83rem;margin-bottom:1.2rem}
+.step-tabs{display:flex;gap:.5rem;margin-bottom:1.2rem}
+.step-tab{flex:1;padding:.45rem;text-align:center;border-radius:6px;font-size:.78rem;font-weight:700;background:var(--lgray);color:var(--gray);transition:all .2s;cursor:pointer}
+.step-tab.active{background:var(--navy);color:#fff}
+.form-step{display:none}
+.form-step.active{display:block}
+.fg{margin-bottom:.85rem}
+.fg label{display:block;font-size:.78rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+.fg input,.fg select,.fg textarea{width:100%;padding:.6rem .9rem;border:1.5px solid var(--lgray);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--dark);background:var(--off);transition:border-color .2s;outline:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);background:#fff}
+.fg textarea{resize:vertical;min-height:70px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.est-result{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:12px;padding:1.2rem;margin:1rem 0;color:#fff;display:none}
+.est-result.show{display:block}
+.est-result h4{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);margin-bottom:.8rem}
+.est-row{display:flex;justify-content:space-between;font-size:.85rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.est-row:last-child{border:none;font-weight:700;font-size:1rem;color:var(--gold);margin-top:.3rem}
+.est-note{font-size:.75rem;color:rgba(255,255,255,.6);margin-top:.5rem;line-height:1.5}
+.form-btn{width:100%;background:var(--navy);color:#fff;border:none;padding:.85rem;border-radius:8px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;margin-top:.5rem}
+.form-btn:hover{background:var(--navy2)}
+.form-btn.gold{background:var(--gold);color:var(--navy)}
+.form-btn.gold:hover{background:var(--gold2)}
+.form-note{text-align:center;font-size:.75rem;color:var(--gray);margin-top:.5rem}
+#booking-success{display:none;text-align:center;padding:1.5rem}
+#booking-success .check{font-size:3rem;margin-bottom:.5rem}
+#booking-success h4{color:var(--green);font-size:1.2rem;margin-bottom:.5rem}
+#booking-success p{color:var(--gray);font-size:.88rem;line-height:1.6}
+
+/* SECTIONS */
+section{padding:4.5rem 5%}
+.inner{max-width:1100px;margin:0 auto}
+.stag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,2.8vw,2.3rem);color:var(--navy);margin-bottom:.9rem}
+.ssub{color:var(--gray);font-size:.97rem;line-height:1.75;max-width:540px}
+
+/* HOW IT WORKS */
+#howit{background:var(--off)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2.5rem}
+.step{background:#fff;border-radius:14px;padding:1.8rem 1.4rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:transform .2s}
+.step:hover{transform:translateY(-4px)}
+.step-num{width:50px;height:50px;background:var(--navy);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin:0 auto 1rem}
+.step h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.step p{font-size:.88rem;color:var(--gray);line-height:1.65}
+
+/* PRICING */
+#pricing{background:#fff}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2.5rem}
+.price-card{border:2px solid var(--lgray);border-radius:14px;padding:1.8rem;transition:all .2s;position:relative}
+.price-card.popular{border-color:var(--gold)}
+.pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-size:.72rem;font-weight:700;padding:.25rem .9rem;border-radius:20px;white-space:nowrap}
+.price-card h4{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+.price-card .rate{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);margin:.5rem 0}
+.price-card .rate span{font-size:.9rem;color:var(--gray);font-family:'DM Sans',sans-serif;font-weight:400}
+.price-card ul{list-style:none;margin-top:1rem}
+.price-card ul li{font-size:.88rem;color:var(--gray);padding:.3rem 0;border-bottom:1px solid var(--lgray);display:flex;gap:.5rem;align-items:flex-start}
+.price-card ul li:last-child{border:none}
+.price-card ul li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+
+/* EXTRA CHARGES */
+.extras-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:2rem}
+.extra-item{background:var(--off);border-radius:10px;padding:1.2rem;border-left:3px solid var(--gold)}
+.extra-item h5{font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.extra-item p{font-size:.83rem;color:var(--gray);line-height:1.6}
+
+/* WHY US */
+#why{background:var(--navy)}
+#why .stitle{color:#fff}
+#why .ssub{color:rgba(255,255,255,.65)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2.5rem}
+.why-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1.6rem}
+.why-card .icon{font-size:1.7rem;margin-bottom:.8rem}
+.why-card h4{color:var(--gold);font-size:.97rem;font-weight:700;margin-bottom:.4rem}
+.why-card p{color:rgba(255,255,255,.6);font-size:.87rem;line-height:1.65}
+
+/* REVIEWS */
+#reviews{background:var(--off)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2.5rem}
+.rev-card{background:#fff;border-radius:14px;padding:1.6rem;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.stars{color:var(--gold);font-size:1rem;margin-bottom:.7rem;letter-spacing:2px}
+.rev-text{color:var(--dark);font-size:.92rem;line-height:1.7;margin-bottom:.8rem;font-style:italic}
+.reviewer{font-weight:700;color:var(--navy);font-size:.83rem}
+
+/* CONTACT */
+#contact{background:var(--navy)}
+#contact .stitle{color:#fff}
+#contact .ssub{color:rgba(255,255,255,.65)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:2.5rem;align-items:start}
+.cinfo p{color:rgba(255,255,255,.7);line-height:1.75;margin-bottom:1.8rem}
+.ci{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:1.1rem}
+.ci-icon{width:40px;height:40px;background:rgba(212,168,67,.15);border:1px solid rgba(212,168,67,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.ci h5{color:var(--gold);font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.15rem}
+.ci p{color:rgba(255,255,255,.8);font-size:.92rem;margin:0}
+.cform{background:#fff;border-radius:16px;padding:1.8rem}
+.cform h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:1.3rem}
+.cform .form-btn{background:var(--gold);color:var(--navy)}
+.cform .form-btn:hover{background:var(--gold2)}
+#msg-success{display:none;text-align:center;padding:1.5rem;color:var(--green);font-weight:600}
+
+/* FOOTER */
+footer{background:#070f1c;padding:1.8rem 5%;text-align:center;color:rgba(255,255,255,.4);font-size:.83rem}
+footer a{color:var(--gold)}
+footer strong{color:rgba(255,255,255,.7)}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links{display:none;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--navy);padding:1rem 5%;gap:1rem}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  .nav-phone{display:none}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-stats{gap:1.2rem}
+  .frow{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:2rem}
+  .step-tabs{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Trust<span>Movers</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#howit">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:+12243639936" class="nav-phone">📞 (224) 363-9936</a>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <span class="badge">🏠 Chicago's Trusted Movers</span>
+      <h1>Moving Made <em>Simple,</em> Safe & Affordable</h1>
+      <p>Professional local & long distance moving across Chicago and all of Illinois. Transparent hourly pricing, no hidden fees, $100 deposit to book.</p>
+      <div class="hero-btns">
+        <a href="#estimate" class="btn-gold">Get Instant Estimate</a>
+        <a href="tel:+12243639936" class="btn-outline">📞 Call Now</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="num">500+</span><span class="lbl">Happy Customers</span></div>
+        <div class="stat"><span class="num">5★</span><span class="lbl">Google Rating</span></div>
+        <div class="stat"><span class="num">$95</span><span class="lbl">Starting/Hour</span></div>
+      </div>
+    </div>
+
+    <!-- ESTIMATE + BOOKING FORM -->
+    <div class="est-card" id="estimate">
+      <h3>Get Your Free Estimate</h3>
+      <p class="sub">Instant quote — book with just $100 deposit</p>
+
+      <div class="step-tabs">
+        <div class="step-tab active" id="tab1">1. Move Details</div>
+        <div class="step-tab" id="tab2">2. Your Info</div>
+        <div class="step-tab" id="tab3">3. Confirm</div>
+      </div>
+
+      <!-- STEP 1: ESTIMATE -->
+      <div class="form-step active" id="step1">
+        <div class="fg">
+          <label>Home / Move Size</label>
+          <select id="homeSize" onchange="calcEstimate()">
+            <option value="">Select your home size</option>
+            <option value="studio">Studio / Small 1BR</option>
+            <option value="1br">1 Bedroom (regular)</option>
+            <option value="2br">2 Bedrooms</option>
+            <option value="3br">3 Bedrooms</option>
+            <option value="4br">4 Bedrooms</option>
+            <option value="5br">5–6 Bedrooms</option>
+            <option value="office">Office / Commercial</option>
+          </select>
+        </div>
+        <div class="fg" id="crewDisplay" style="background:var(--off);border-radius:8px;padding:.7rem 1rem;font-size:.88rem;color:var(--navy);display:none">
+          👷 <span id="crewInfo"></span>
+        </div>
+        <div class="frow">
+          <div class="fg">
+            <label>Floors at Origin</label>
+            <select id="floorsFrom" onchange="calcEstimate()">
+              <option value="1">1st Floor (free)</option>
+              <option value="2">2nd Floor (free)</option>
+              <option value="3">3rd Floor (+$50)</option>
+              <option value="4">4th Floor (+$100)</option>
+              <option value="5">5th Floor+ (+$150)</option>
+              <option value="0">Elevator (free)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Floors at Destination</label>
+            <select id="floorsTo" onchange="calcEstimate()">
+              <option value="1">1st Floor (free)</option>
+              <option value="2">2nd Floor (free)</option>
+              <option value="3">3rd Floor (+$50)</option>
+              <option value="4">4th Floor (+$100)</option>
+              <option value="5">5th Floor+ (+$150)</option>
+              <option value="0">Elevator (free)</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Packing Service Needed?</label>
+          <select id="packing" onchange="calcEstimate()">
+            <option value="none">No packing needed</option>
+            <option value="partial">Partial packing (+$150)</option>
+            <option value="full">Full packing service (+$350)</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Preferred Move Date</label>
+          <input type="date" id="moveDate">
+        </div>
+
+        <!-- ESTIMATE RESULT -->
+        <div class="est-result" id="estResult">
+          <h4>📋 Your Estimate</h4>
+          <div class="est-row"><span>Crew & Rate</span><span id="rRate">—</span></div>
+          <div class="est-row"><span>Travel Time (flat 1 hr)</span><span id="rTravel">—</span></div>
+          <div class="est-row"><span>Labor Minimum</span><span id="rTime">—</span></div>
+          <div class="est-row" id="stairsRow" style="display:none"><span>Stairs Surcharge</span><span id="rStairs"></span></div>
+          <div class="est-row" id="packingRow" style="display:none"><span>Packing Service</span><span id="rPacking"></span></div>
+          <div class="est-row"><span>Estimated Total</span><span id="rTotal">—</span></div>
+          <p class="est-note">⚠️ Non-binding estimate. Final cost billed by actual hours worked. Actual time may be longer depending on conditions. $100 deposit required to confirm.</p>
+        </div>
+
+        <button class="form-btn gold" onclick="nextStep(2)">Continue to Book →</button>
+        <p class="form-note">📞 Prefer to call? <a href="tel:+12243639936" style="color:var(--navy);font-weight:700">(224) 363-9936</a></p>
+      </div>
+
+      <!-- STEP 2: CUSTOMER INFO -->
+      <div class="form-step" id="step2">
+        <div class="frow">
+          <div class="fg">
+            <label>First Name *</label>
+            <input type="text" id="firstName" placeholder="John" required>
+          </div>
+          <div class="fg">
+            <label>Last Name *</label>
+            <input type="text" id="lastName" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Phone Number *</label>
+          <input type="tel" id="phone" placeholder="(773) 000-0000" required>
+        </div>
+        <div class="fg">
+          <label>Email Address *</label>
+          <input type="email" id="email" placeholder="john@email.com" required>
+        </div>
+        <div class="fg">
+          <label>Full Address — Moving From *</label>
+          <input type="text" id="addrFrom" placeholder="123 Main St, Chicago, IL 60601" required>
+        </div>
+        <div class="fg">
+          <label>Full Address — Moving To *</label>
+          <input type="text" id="addrTo" placeholder="456 Oak Ave, Naperville, IL 60540" required>
+        </div>
+        <div class="fg">
+          <label>Special Items or Notes</label>
+          <textarea id="notes" placeholder="Piano, heavy safes, fragile items, storage needs..."></textarea>
+        </div>
+        <button class="form-btn gold" onclick="nextStep(3)">Review & Confirm →</button>
+        <button class="form-btn" style="background:var(--lgray);color:var(--navy);margin-top:.4rem" onclick="nextStep(1)">← Back</button>
+      </div>
+
+      <!-- STEP 3: CONFIRM -->
+      <div class="form-step" id="step3">
+        <div id="confirmSummary" style="background:var(--off);border-radius:10px;padding:1rem;margin-bottom:1rem;font-size:.88rem;line-height:1.8;color:var(--dark)"></div>
+
+        <div style="background:#fff8e6;border:1px solid var(--gold);border-radius:10px;padding:1rem;margin-bottom:1rem;font-size:.85rem;color:var(--navy)">
+          <strong>💰 Deposit: $100</strong><br>
+          Pay via <strong>Zelle</strong> to: <strong>trustmoversllc@gmail.com</strong><br>
+          <span style="color:var(--gray)">Send after submitting. We'll call to confirm your booking!</span>
+        </div>
+
+        <div class="fg">
+          <label>How did you hear about us?</label>
+          <select id="source">
+            <option>Google Search</option>
+            <option>Google Maps</option>
+            <option>Facebook</option>
+            <option>Instagram</option>
+            <option>Friend / Referral</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <button class="form-btn gold" onclick="submitBooking()">✅ Submit Booking Request</button>
+        <button class="form-btn" style="background:var(--lgray);color:var(--navy);margin-top:.4rem" onclick="nextStep(2)">← Back</button>
+        <p class="form-note">🔒 Your info is secure and never shared.</p>
+      </div>
+
+      <div id="booking-success">
+        <div class="check">🎉</div>
+        <h4>Booking Request Received!</h4>
+        <p>Thank you! We'll call you at <strong id="confirmedPhone"></strong> within 1 hour to confirm your move.<br><br>
+        <strong>Don't forget:</strong> Send $100 deposit via Zelle to<br>
+        <strong style="color:var(--navy)">trustmoversllc@gmail.com</strong><br><br>
+        Questions? Call us: <a href="tel:+12243639936" style="color:var(--gold);font-weight:700">(224) 363-9936</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="howit">
+  <div class="inner">
+    <span class="stag">Simple Process</span>
+    <h2 class="stitle">How It Works</h2>
+    <p class="ssub">From your first estimate to your last box — we make it easy.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h4>Get Estimate</h4><p>Use our instant calculator to get a price estimate based on your move size, distance, and details.</p></div>
+      <div class="step"><div class="step-num">2</div><h4>Book Online</h4><p>Fill in your info and pay a $100 deposit via Zelle to secure your moving date.</p></div>
+      <div class="step"><div class="step-num">3</div><h4>We Call You</h4><p>Our team calls within 1 hour to confirm all details and answer any questions you have.</p></div>
+      <div class="step"><div class="step-num">4</div><h4>Move Day!</h4><p>Our crew arrives on time, moves everything safely, and you pay the remaining balance after completion.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="inner">
+    <span class="stag">Transparent Pricing</span>
+    <h2 class="stitle">Our Rates</h2>
+    <p class="ssub">Hourly billing — you only pay for actual time. 4-hour minimum. No hidden fees.</p>
+    <div class="pricing-grid">
+      <div class="price-card popular">
+        <div class="pop-badge">⭐ Most Popular</div>
+        <h4>2 Movers + 16ft Truck</h4>
+        <div class="rate">$95<span>/hour</span></div>
+        <ul>
+          <li>Studio & small 1BR: 2hr labor min</li>
+          <li>1BR regular & 2BR: 3hr labor min</li>
+          <li>+ 1 hour travel time (flat fee)</li>
+          <li>Furniture wrap & protection</li>
+          <li>Disassembly & reassembly</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <h4>3 Movers + 26ft Truck</h4>
+        <div class="rate">$140<span>/hour</span></div>
+        <ul>
+          <li>Best for 3BR, 4BR, 5BR+ homes</li>
+          <li>4–5 hour labor minimum</li>
+          <li>+ 1 hour travel time (flat fee)</li>
+          <li>Large truck for big moves</li>
+          <li>Full team, faster completion</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem">
+      <h3 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.3rem;margin-bottom:1rem">Additional Charges That May Apply</h3>
+      <div class="extras-grid">
+        <div class="extra-item"><h5>🏢 Stairs Surcharge</h5><p>1st & 2nd floor are FREE. From 3rd floor and above: $50 per floor. Elevator is always free.</p></div>
+        <div class="extra-item"><h5>🚛 Travel Time</h5><p>Always a flat 1-hour fee at your hourly rate. Covers movers driving from lot → your location → back to lot.</p></div>
+        <div class="extra-item"><h5>📦 Packing Materials</h5><p>Boxes, packing paper, bubble wrap billed separately if requested. Partial or full packing service available.</p></div>
+        <div class="extra-item"><h5>🎹 Heavy & Oversized Items</h5><p>Items over 150 lbs may incur extra charges. Piano, pool table, safe — ask us for a custom quote.</p></div>
+        <div class="extra-item"><h5>🌙 Overnight Storage</h5><p>If needed between move days: 16ft truck $150/night, 26ft truck $300/night.</p></div>
+        <div class="extra-item"><h5>💳 Credit Card Fee</h5><p>4% processing fee for credit/debit card. Zelle accepted with zero fees — preferred payment method.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="inner">
+    <span class="stag">Why Choose Us</span>
+    <h2 class="stitle">The Trust Movers Difference</h2>
+    <p class="ssub">We're your neighbors — and we take that seriously.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="icon">✅</div><h4>Licensed & Insured</h4><p>Fully licensed and insured for your complete peace of mind on every move.</p></div>
+      <div class="why-card"><div class="icon">💰</div><h4>No Hidden Fees</h4><p>Transparent hourly pricing. What we quote is what you pay — always.</p></div>
+      <div class="why-card"><div class="icon">⏰</div><h4>Always On Time</h4><p>We show up when we say we will and work efficiently to finish as promised.</p></div>
+      <div class="why-card"><div class="icon">🌍</div><h4>All of Illinois</h4><p>We serve all areas within 100 miles of Chicago and can go further across Illinois.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="inner">
+    <span class="stag">Customer Reviews</span>
+    <h2 class="stitle">What Our Customers Say</h2>
+    <p class="ssub">Real stories from real people who trusted us with their move.</p>
+    <div class="reviews-grid">
+      <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">"Trust Movers made my apartment move completely stress-free. Fast, professional, and super careful with all my furniture. Will definitely use again!"</p><span class="reviewer">— Sarah M., Chicago, IL</span></div>
+      <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">"Best moving experience I've ever had. On time, finished ahead of schedule, didn't damage a single thing. Pricing was fair and transparent."</p><span class="reviewer">— Mike D., Schaumburg, IL</span></div>
+      <div class="rev-card"><div class="stars">★★★★★</div><p class="rev-text">"Used Trust Movers for our office relocation. They worked over the weekend, very professional team. Highly recommend for any move!"</p><span class="reviewer">— Lisa R., Naperville, IL</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="inner">
+    <span class="stag">Get In Touch</span>
+    <h2 class="stitle">Ready to Move?</h2>
+    <p class="ssub">Contact us today — we're here 7 days a week.</p>
+    <div class="contact-grid">
+      <div class="cinfo">
+        <p>Whether you need a quick local move or a long-distance relocation across Illinois, our team is ready. We respond fast and treat every move like it's our own.</p>
+        <div class="ci"><div class="ci-icon">📞</div><div><h5>Phone</h5><p><a href="tel:+12243639936">(224) 363-9936</a></p></div></div>
+        <div class="ci"><div class="ci-icon">📧</div><div><h5>Email</h5><p><a href="mailto:trustmoversllc@gmail.com">trustmoversllc@gmail.com</a></p></div></div>
+        <div class="ci"><div class="ci-icon">💰</div><div><h5>Zelle (Deposit)</h5><p>trustmoversllc@gmail.com</p></div></div>
+        <div class="ci"><div class="ci-icon">📍</div><div><h5>Service Area</h5><p>Chicago & All of Illinois (100-mile radius)</p></div></div>
+        <div class="ci"><div class="ci-icon">🕐</div><div><h5>Hours</h5><p>Monday – Sunday: 7:00 AM – 9:00 PM</p></div></div>
+      </div>
+      <div class="cform">
+        <h3>Send Us a Message</h3>
+        <form id="contactForm">
+          <div class="frow">
+            <div class="fg"><label>Name *</label><input type="text" name="name" placeholder="Your name" required></div>
+            <div class="fg"><label>Phone *</label><input type="tel" name="phone" placeholder="(773) 000-0000" required></div>
+          </div>
+          <div class="fg"><label>Email *</label><input type="email" name="email" placeholder="you@email.com" required></div>
+          <div class="fg"><label>Message</label><textarea name="message" placeholder="Tell us about your move..."></textarea></div>
+          <button type="submit" class="form-btn">Send Message →</button>
+        </form>
+        <div id="msg-success">✅ Message sent! We'll be in touch shortly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <strong>Trust Movers LLC</strong> — Chicago Area's Trusted Moving Company</p>
+  <p style="margin-top:.4rem"><a href="#home">Home</a> · <a href="#pricing">Pricing</a> · <a href="#contact">Contact</a> · <a href="tel:+12243639936">(224) 363-9936</a> · <a href="mailto:trustmoversllc@gmail.com">trustmoversllc@gmail.com</a></p>
+</footer>
+
+<script>
+// PRICING RULES
+// 2 movers + 16ft truck = $95/hr  → studio, 1BR, 2BR
+// 3 movers + 26ft truck = $140/hr → 3BR, 4BR, 5BR+, office
+// Travel time = always flat 1 hour (parking lot → job → parking lot)
+// Labor minimum: studio/small 1BR = 2hrs, 1BR regular/2BR = 3hrs, 3BR+ = 4hrs
+// Stairs: 1st & 2nd floor FREE, 3rd floor+ = $50 per floor above 2nd
+// No fuel surcharge
+
+const CREW = {
+  studio: { movers: 2, truck: '16ft', rate: 95, laborMin: 2, label: '2 Movers + 16ft Truck' },
+  '1br':  { movers: 2, truck: '16ft', rate: 95, laborMin: 3, label: '2 Movers + 16ft Truck' },
+  '2br':  { movers: 2, truck: '16ft', rate: 95, laborMin: 3, label: '2 Movers + 16ft Truck' },
+  '3br':  { movers: 3, truck: '26ft', rate: 140, laborMin: 4, label: '3 Movers + 26ft Truck' },
+  '4br':  { movers: 3, truck: '26ft', rate: 140, laborMin: 4, label: '3 Movers + 26ft Truck' },
+  '5br':  { movers: 3, truck: '26ft', rate: 140, laborMin: 5, label: '3 Movers + 26ft Truck' },
+  office: { movers: 3, truck: '26ft', rate: 140, laborMin: 4, label: '3 Movers + 26ft Truck' },
+};
+
+function calcEstimate() {
+  const size = document.getElementById('homeSize').value;
+  if (!size) return;
+
+  const crew = CREW[size];
+  const floorsFrom = parseInt(document.getElementById('floorsFrom').value);
+  const floorsTo = parseInt(document.getElementById('floorsTo').value);
+  const packing = document.getElementById('packing').value;
+
+  // Show crew info
+  document.getElementById('crewDisplay').style.display = 'block';
+  document.getElementById('crewInfo').textContent = `Recommended crew: ${crew.label} @ $${crew.rate}/hr`;
+
+  // Travel = always 1 flat hour
+  const travelCost = crew.rate * 1;
+
+  // Labor minimum cost
+  const laborCost = crew.rate * crew.laborMin;
+
+  // Stairs: only floors above 2nd cost $50 each
+  // floorsFrom/To value = floor number (0=elevator=free, 1=free, 2=free, 3=$50, 4=$100, 5=$150)
+  const stairsFrom = floorsFrom >= 3 ? (floorsFrom - 2) * 50 : 0;
+  const stairsTo   = floorsTo   >= 3 ? (floorsTo   - 2) * 50 : 0;
+  const stairsTotal = stairsFrom + stairsTo;
+
+  // Packing
+  let packingCost = 0;
+  if (packing === 'partial') packingCost = 150;
+  if (packing === 'full')    packingCost = 350;
+
+  const minTotal = travelCost + laborCost + stairsTotal + packingCost;
+  // Show range: minimum to ~25% more (actual time may be longer)
+  const highTotal = Math.round(minTotal * 1.25);
+
+  document.getElementById('rRate').textContent = `$${crew.rate}/hr (${crew.label})`;
+  document.getElementById('rTravel').textContent = `$${travelCost} (1 hr flat)`;
+  document.getElementById('rTime').textContent = `${crew.laborMin} hrs min → $${laborCost}`;
+
+  const stairsRow = document.getElementById('stairsRow');
+  if (stairsTotal > 0) {
+    stairsRow.style.display = 'flex';
+    document.getElementById('rStairs').textContent = `$${stairsTotal}`;
+  } else {
+    stairsRow.style.display = 'none';
+  }
+
+  const packingRow = document.getElementById('packingRow');
+  if (packingCost > 0) {
+    packingRow.style.display = 'flex';
+    document.getElementById('rPacking').textContent = `$${packingCost}`;
+  } else {
+    packingRow.style.display = 'none';
+  }
+
+  document.getElementById('rTotal').textContent = `$${minTotal} – $${highTotal}`;
+  document.getElementById('estResult').classList.add('show');
+}
+
+function nextStep(n) {
+  if (n === 2) {
+    if (!document.getElementById('homeSize').value) { alert('Please select your home size to get an estimate.'); return; }
+  }
+  if (n === 3) {
+    const fn = document.getElementById('firstName').value;
+    const ph = document.getElementById('phone').value;
+    const em = document.getElementById('email').value;
+    const af = document.getElementById('addrFrom').value;
+    const at = document.getElementById('addrTo').value;
+    if (!fn || !ph || !em || !af || !at) { alert('Please fill in all required fields.'); return; }
+    buildConfirmSummary();
+  }
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.step-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+  document.getElementById('tab' + n).classList.add('active');
+}
+
+function buildConfirmSummary() {
+  const size = document.getElementById('homeSize').value;
+  const sizeText = document.getElementById('homeSize').options[document.getElementById('homeSize').selectedIndex].text;
+  const crew = CREW[size];
+  const date = document.getElementById('moveDate').value;
+  const fn = document.getElementById('firstName').value;
+  const ln = document.getElementById('lastName').value;
+  const ph = document.getElementById('phone').value;
+  const em = document.getElementById('email').value;
+  const af = document.getElementById('addrFrom').value;
+  const at = document.getElementById('addrTo').value;
+  const total = document.getElementById('rTotal').textContent;
+
+  document.getElementById('confirmSummary').innerHTML = `
+    <strong>👤 Name:</strong> ${fn} ${ln}<br>
+    <strong>📞 Phone:</strong> ${ph}<br>
+    <strong>📧 Email:</strong> ${em}<br>
+    <strong>📦 Move Size:</strong> ${sizeText}<br>
+    <strong>👷 Crew:</strong> ${crew ? crew.label + ' @ $' + crew.rate + '/hr' : '—'}<br>
+    <strong>📅 Date:</strong> ${date || 'TBD — we will confirm by phone'}<br>
+    <strong>🏠 From:</strong> ${af}<br>
+    <strong>🏡 To:</strong> ${at}<br>
+    <strong>💵 Estimated Total:</strong> ${total}
+  `;
+}
+
+async function submitBooking() {
+  const btn = document.querySelector('#step3 .form-btn.gold');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  const size = document.getElementById('homeSize').value;
+  const crew = CREW[size];
+  const data = {
+    name: document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value,
+    phone: document.getElementById('phone').value,
+    email: document.getElementById('email').value,
+    from: document.getElementById('addrFrom').value,
+    to: document.getElementById('addrTo').value,
+    size: document.getElementById('homeSize').options[document.getElementById('homeSize').selectedIndex].text,
+    crew: crew ? crew.label + ' @ $' + crew.rate + '/hr' : '—',
+    date: document.getElementById('moveDate').value || 'TBD',
+    notes: document.getElementById('notes').value,
+    source: document.getElementById('source').value,
+    estimate: document.getElementById('rTotal').textContent,
+    _subject: '🚛 New Booking Request – Trust Movers'
+  };
+
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycbxpkSFZbFZov1_O6V0N6R1l4WqWC4Y-tRKEeZvaDheU5sGtPMwcijKg1vpywCKmfzwy/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    // no-cors means we can't read the response but it still sends
+    document.querySelectorAll('.form-step').forEach(s => s.style.display = 'none');
+    document.querySelectorAll('.step-tab').forEach(t => t.style.display = 'none');
+    document.getElementById('booking-success').style.display = 'block';
+    document.getElementById('confirmedPhone').textContent = data.phone;
+  } catch(e) {
+    alert('Error submitting. Please call us at (224) 363-9936');
+    btn.textContent = '✅ Submit Booking Request';
+    btn.disabled = false;
+  }
+}
+
+// Contact form
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button');
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  const data = Object.fromEntries(new FormData(this).entries());
+  data._subject = 'New Message – Trust Movers Website';
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycbxpkSFZbFZov1_O6V0N6R1l4WqWC4Y-tRKEeZvaDheU5sGtPMwcijKg1vpywCKmfzwy/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    this.style.display = 'none';
+    document.getElementById('msg-success').style.display = 'block';
+  } catch(e) {
+    btn.textContent = 'Send Message →'; btn.disabled = false;
+    alert('Error. Please email us at trustmoversllc@gmail.com');
+  }
+});
+</script>
+</body>
+</html>
